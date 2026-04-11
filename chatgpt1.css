@@ -1,0 +1,157 @@
+body {
+    background-color: #202020;
+    font-family: "Google Sans", sans-serif;
+}
+
+.top {
+    display: flex;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+    margin-left: 30px;
+}
+
+.log-in {
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    height: 40px;
+    width: 100px;
+    margin-left: 72%;
+    margin-top: 2%;
+    text-align: center;
+    align-items: center;
+}
+
+.sign-up {
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    height: 40px;
+    width: 100px;
+    margin-top: 2%;
+    margin-left: 7px;
+    border: white 0.2px solid;
+    text-align: center;
+    align-items: center;
+}
+
+.text {
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.search-bar {
+    width: 700px;
+    align-self: center;
+    height: 50px;
+    border-radius: 25px;
+    margin-top: 30px;
+    background-color: #3B3C4A;
+    border: none;
+    color: white;
+    padding-left: 20px;
+    padding-right: 0px;
+    position: relative;
+    text-wrap: wrap;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.outtext {
+    color: white;
+    margin-bottom: 1px;
+    position: fixed;
+    bottom: 0px;
+    margin-left: 150px;
+}
+
+.search {
+    align-items: center;
+    position: sticky;
+    width: 700px;
+    display: block;
+    margin: 30px auto;
+    padding-right: 0px;
+}
+
+.search button {
+    position: absolute;
+    right: 2px;
+    top: 66%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+main {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.go {
+    position: fixed;
+    right: 0;
+    font-size: 30px;
+}
+
+header {
+    position: sticky;
+    margin-top: 0px;
+    top: 0px;
+}
+
+.user-message {
+    background-color: #3B3C4A;
+    margin-left: 30px;
+    display: block;
+    width: fit-content;
+    word-wrap: break-word;
+    padding: 13px;
+    margin-left: 20%;
+    border-radius: 20px;
+    text-align: left;
+    text-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: static;
+}
+
+.bot-para {
+    background-color: #3B3C4A;
+    margin-right: 190px;
+    display: block;
+    margin-left: 30%;
+    width: fit-content;
+    word-wrap: break-word;
+    padding: 13px;
+    position: static;
+    border-radius: 20px;
+    text-align: left;
+    text-wrap: wrap;
+}
+
+.load {
+    text-align: center;
+    alignment-baseline: central;
+    margin-top: auto;
+}
+/* .messages{
+    margin-bottom: 10%;
+} */
+   /* messages.style.paddingBottom = "10%"; */
