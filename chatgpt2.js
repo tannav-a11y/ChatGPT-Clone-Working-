@@ -1,4 +1,4 @@
-// Note: We no longer need the Google Generative AI import
+
 const API_KEY = "xxxxxxxxxxxx"; 
 const messages = document.querySelector(".messages");
 
@@ -31,7 +31,7 @@ async function main(userPrompt) {
       throw new Error(data.error?.message || "Error from Groq API");
     }
 
-    // Groq follows the OpenAI response format: choices[0].message.content
+    
     return data.choices[0].message.content; 
   } catch (err) {
     console.error("Groq API Error:", err);
@@ -39,9 +39,7 @@ async function main(userPrompt) {
   }
 }
 
-/**
- * UI logic to display data
- */
+
 async function showdata(prompt) {
   let loading = document.createElement("p");
   loading.innerText = "Typing...";
@@ -61,29 +59,29 @@ async function showdata(prompt) {
 
 }
 
-// Selectors
+
 const input = document.querySelector(".search-bar");
 const policy = document.querySelector(".outtext");
 const intro = document.querySelector(".text");
 const btn = document.querySelector(".go");
 const searchholder = document.querySelector(".search");
 
-// Event Listeners
+
 btn.addEventListener("click", (e) => {
   e.preventDefault();
   const promptValue = input.value.trim();
   
   if (!promptValue) return;
 
-  // UI Updates
+ 
   policy.style.display = "none";
   intro.style.display = "none";
   searchholder.style.position = "fixed";
   searchholder.style.bottom = "0";
   searchholder.style.marginLeft = "20%";
-// searchholder.style.marginTop="3%";
+
    messages.style.paddingBottom = "10%";
-  // Create User Message Bubble
+  
   let usertext = document.createElement("p");
   usertext.classList.add("user-message");
   usertext.style.color = "white";
@@ -93,10 +91,9 @@ btn.addEventListener("click", (e) => {
 
  
 
-  // Trigger Bot Response
   showdata(promptValue);
   
-  // Reset Input
+
   input.value = "";
 });
 
