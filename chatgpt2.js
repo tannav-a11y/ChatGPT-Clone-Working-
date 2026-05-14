@@ -323,4 +323,18 @@ if (res === "Dark" || res === "Light") {
   modeSelect.dispatchEvent(new Event("change"));
 }
 
-
+function update_loader(){
+  const loader=document.querySelectorAll(".load");
+  if(darkmode===true){
+     loader.forEach(el=>{
+   el.style.color = "white";
+ })
+  }
+  else if(darkmode===false){
+     loader.forEach(el=>{
+   el.style.color = "black";
+ })
+  }
+  requestAnimationFrame(update_loader);
+}
+update_loader()
