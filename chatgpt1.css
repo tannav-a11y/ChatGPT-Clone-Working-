@@ -333,7 +333,7 @@ header {
     margin-bottom: 40px;
     position: static;
     max-width: 350px;
-
+    transition: none;
 
 }
 
@@ -350,6 +350,7 @@ header {
     border-radius: 20px;
     text-align: left;
     text-wrap: wrap;
+    transition: none;
 }
 
 .load {
