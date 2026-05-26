@@ -1,6 +1,53 @@
 
-const API_KEY = "XXXXXXXXXXXXXXXXX";
+const API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXX";
 const messages = document.querySelector(".messages");
+
+const Ai_mode=document.querySelector(".AI_mode_selection");
+
+function update_message(){
+  let answer=""
+  let userAI=Ai_mode.value;
+  if(userAI==="Study"){
+    answer=`You are a helpful and patient tutor for school students.
+
+Rules:
+- Explain concepts in very simple language
+- Break answers into steps when needed
+- Give examples for better understanding
+- Avoid unnecessary complexity
+- If the topic is academic, make it exam-friendly`
+
+  }
+
+
+  else if(userAI==="Coding"){
+    answer=`You are an expert programming assistant.
+
+Rules:
+- Provide correct and optimized code
+- Explain logic clearly but briefly
+- Always include examples when useful
+- Mention errors and fixes if relevant
+- Prefer clean and readable code over complex tricks`
+
+  }
+
+
+ else if(userAI==="Creative"){
+   answer=`You are a creative and imaginative assistant.
+
+Rules:
+- Be expressive and engaging
+- Generate unique ideas, stories, scripts, captions
+- You can use humor and creativity
+- Avoid overly strict or technical explanations unless asked`
+
+  }
+else if(userAI==="Default"){
+  answer=`You are a helpful AI assistant.`
+}
+return answer
+}
 
 async function main(userPrompt) {
   try {
@@ -13,6 +60,10 @@ async function main(userPrompt) {
       body: JSON.stringify({
         model: "llama-3.3-70b-versatile",
         messages: [
+             {
+      role: "system",
+      content: update_message()
+    },
           {
             role: "user",
             content: userPrompt,
@@ -82,7 +133,7 @@ const settings=document.querySelector(".SettingMenu");
 const closebutton_setting = document.querySelector(".close_settings")
 
 const modeSelect = document.querySelector(".Mode");
-
+const outtext2=document.querySelector(".outtext2")
 
 
 
@@ -98,12 +149,10 @@ btn.addEventListener("click", (e) => {
 
   policy.style.display = "none";
   intro.style.display = "none";
-  searchholder.style.position = "fixed";
-  searchholder.style.bottom = "0";
-  searchholder.style.marginLeft = "20%";
+ 
+searchholder.id="chatinput";
 
-  messages.style.paddingBottom = "10%";
-
+outtext2.style.display="none";
 
   let usertext = document.createElement("p");
   usertext.classList.add("user-message");
@@ -152,7 +201,7 @@ inMenu.addEventListener("click", (e) => {
   bar.style.left = "-400px";
 })
 newchat.addEventListener("click", (e) => {
-  // Reload the current page
+
   location.reload();
 
 })
@@ -193,6 +242,7 @@ const logo = document.querySelector(".sitelogo");
 
 
 
+
   let darkmode = true;
 
 
@@ -203,8 +253,9 @@ modeSelect.addEventListener("change", (e) => {
 
   if (modeval === "Dark") {
     darkmode = true;
-    console.log("switching to dark");
+    
     body.style.backgroundColor = "#202020";
+    outtext2.style.color="white";
     input.style.backgroundColor = "#3B3C4A";
     input.style.color = "white";
     policy.style.color = "white";
@@ -233,13 +284,14 @@ opt.style.backgroundColor="#2F303B"
 });
 down.style.backgroundColor="#3B3C4A";
 down.style.color="white";
+Ai_mode.style.color="white"
   }
 
   else if (modeval === "Light") {
     darkmode = false;
-    console.log("switching to Light");
+    
 
-
+outtext2.style.color="black";
     body.style.backgroundColor = "#FFFFFF";
     input.style.backgroundColor = "#E5E7EB";
     input.style.color = "black";
@@ -268,6 +320,7 @@ opt.style.backgroundColor="#ECECF1"
 });
 down.style.backgroundColor="#ECECF1";
 down.style.color="black";
+Ai_mode.style.color="black"
   }
 
 
@@ -308,6 +361,8 @@ else if(darkmode===false){
   bottext.forEach(el=>{
     el.style.backgroundColor="#F4F4F4";
   el.style.color="black";
+  
+  
   })
  
 
@@ -322,6 +377,7 @@ if (res === "Dark" || res === "Light") {
   modeSelect.value = res;
   modeSelect.dispatchEvent(new Event("change"));
 }
+
 
 function update_loader(){
   const loader=document.querySelectorAll(".load");
