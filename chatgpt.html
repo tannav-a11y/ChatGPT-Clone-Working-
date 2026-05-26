@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>ChatGPT</title>
     <link rel="stylesheet" href="chatgpt1.css">
     <style>
@@ -20,16 +20,33 @@
                 <div class="newchatcontainer">
                     <button class="NewChat">💬 New Chat</button>
                     <button class="Setting">⚙️ Settings</button>
+                   
+                   <div class="Ai_mode"> 
+                    <select  class="AI_mode_selection">
+                        <option disabled selected>🧠 Select Mode</option>
+                        <option value="Default">🤖 Default Mode</option>
+                        <option value="Study">📘 Study Mode</option>
+                    <option value="Coding">💻 Coding Mode</option>
+                <option value="Creative">✨ Creative Mode</option>
+            </select></div>
+                    
                 </div>
             </div>
+            
             <span class="sitelogo">
            </span>
+           
             <button class="log-in">Log In</button>
             <button class="sign-up">Sign Up </button>
-        </div>
-    </header>
 
+        
+        
+        
+    </header>
+<div class="messages"></div>
     <main>
+            
+
         <div class="menuHolder">
             <div class="SettingMenu">
                 <div class="close_buttonHolder"><button class="close_settings">❌</button><div class="SettingsHeader">Settings</div></div>
@@ -48,13 +65,12 @@
                 
             </div>
         </div>
-        <div class="main content">
-            <h1 class="text">Where should we begin?</h1>
+        <div class="main_content">
+           <div> <h1 class="text">Where should we begin?</h1></div>
             <button class="down">↓</button>
             <form>
                 <div class="app">
-                    <div class="messages"></div>
-
+                
                     <div class="search">
                         <input class="search-bar" type="text" placeholder="Ask Anything">
                         <button class="go">↑</button>
@@ -66,6 +82,7 @@
     <footer>
         <p class="outtext">By messaging ChatGPT, an AI chatbot, you agree to our Terms and have read our Privacy Policy.
             See Cookie Preferences.</p>
+            <p class="outtext2">By messaging ChatGPT,you agree to our Terms & Privacy Policy</p>
     </footer>
 
     <script type="module" src="chatgpt2.js"></script>
