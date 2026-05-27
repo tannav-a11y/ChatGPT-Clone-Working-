@@ -1,5 +1,5 @@
 
-const API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXX";
+const API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 const messages = document.querySelector(".messages");
 
 const Ai_mode=document.querySelector(".AI_mode_selection");
@@ -106,7 +106,7 @@ async function showdata(prompt) {
   loading.remove();
 
   let bot_para = document.createElement("p");
-  bot_para.innerText = result;
+  bot_para.innerHTML= marked.parse(result);
   bot_para.style.color = "white";
   bot_para.classList.add("bot-para");
   messages.appendChild(bot_para);
@@ -325,7 +325,8 @@ Ai_mode.style.color="black"
 
 
 
-
+ apply_theme_chat()
+ update_loader()
 
 
    
@@ -337,7 +338,7 @@ Ai_mode.style.color="black"
 })
 
 
-function loop() {
+function apply_theme_chat() {
   const bottext = document.querySelectorAll(".bot-para");
 const user = document.querySelectorAll(".user-message");
 if(darkmode===true){
@@ -364,12 +365,18 @@ else if(darkmode===false){
   
   
   })
+
  
 
 }
-  requestAnimationFrame(loop); // keeps calling itself
+  // requestAnimationFrame(loop); // keeps calling itself
+ 
 }
-loop();
+apply_theme_chat()
+const observer= new MutationObserver(()=>{
+  apply_theme_chat();
+})
+observer.observe(messages, { childList: true });
 
 let res = localStorage.getItem("Mode");
 
@@ -391,6 +398,11 @@ function update_loader(){
    el.style.color = "black";
  })
   }
-  requestAnimationFrame(update_loader);
+
 }
 update_loader()
+const obs= new MutationObserver(()=>{
+  update_loader()
+})
+obs.observe(messages, { childList: true });
+
