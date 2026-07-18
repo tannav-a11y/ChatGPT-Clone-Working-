@@ -28,12 +28,10 @@ function generate() {
 }
 covertchatback();
 if (Object.keys(chatmemory).length === 0) {
-  
   let initialId = generate();
   currentchatid = initialId;
   chatmemory[initialId] = [];
 } else {
- 
   currentchatid = Object.keys(chatmemory)[0];
 }
 rebuildsidebar();
@@ -41,7 +39,6 @@ rebuildsidebar();
 
 
 
-const API_KEY = "XXXXXXXXXXXXXXXXXXXX";
 
 function update_message() {
   let answer = ""
@@ -242,19 +239,20 @@ else {
 }
 newchat.addEventListener("click", (e) => {
 clearchat(); 
+  
+
   let newId = generate();
   currentchatid = newId;
   
-  
+
   chatmemory[newId] = [];
   
-  
+ 
   convertchat();
   
+ rebuildsidebar();
   
-  rebuildsidebar();
-  
-  
+ 
   bar.style.left = "-400px";
 })
 let setting = false;
@@ -421,7 +419,7 @@ function apply_theme_chat() {
 
 
   }
- 
+
 
 }
 apply_theme_chat()
@@ -461,7 +459,7 @@ obs.observe(messages, { childList: true });
 
 function clearchat() {
   messages.innerHTML = "";
-  policy.style.display = "block";
+  
   intro.style.display = "block";
 
   searchholder.id = "";
@@ -475,12 +473,12 @@ function convertchat() {
   localStorage.setItem("savedchat", stringchat)
 }
 function covertchatback() {
- 
+  
   let storedstr = localStorage.getItem("savedchat");
   
-  
+
   if (storedstr) {
-    
+  
     let sotredchat = JSON.parse(storedstr); 
     
     if (sotredchat) {
@@ -488,7 +486,6 @@ function covertchatback() {
       console.log("Success loading memory vault:", chatmemory);
     }
   } else {
-    
     chatmemory = {};
   }
 }
@@ -509,7 +506,8 @@ function rebuildsidebar() {
         policy.style.display = "none";
         intro.style.display = "none";
         searchholder.id = "chatinput";
-        if (outtext2) outtext2.style.display = "none";
+        if (outtext2) outtext2.style.display = "block";
+        policy.style.display="none"
 
         history.forEach((msg) => {
           let para = document.createElement("p");
@@ -531,3 +529,30 @@ function rebuildsidebar() {
     userchats.appendChild(chatbtn);
   });
 }
+
+const clear=document.querySelector("#Clear");
+clear.addEventListener("click",(e)=>{
+e.preventDefault();
+  
+  
+  localStorage.removeItem("savedchat");
+
+ 
+  chatmemory = {};
+  
+  
+  userchats.innerHTML = ""; 
+  
+  
+  let freshId = generate();
+  currentchatid = freshId;
+  chatmemory[freshId] = [];
+  
+  convertchat();
+  
+ 
+  rebuildsidebar();
+  
+
+  clearchat(); 
+})
