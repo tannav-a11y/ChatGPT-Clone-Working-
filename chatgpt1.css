@@ -479,6 +479,31 @@ header {
     max-width: 130px;
     display: inline;
 }
+
+
+.Chat{
+    
+    border: 0px solid transparent;
+
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+    max-width: 30vh;
+
+    width: 100%;
+    border-radius: 30px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+}
+
+
+
+
+
+
+
 /* phone */
 @media (max-width: 600px) {
     
