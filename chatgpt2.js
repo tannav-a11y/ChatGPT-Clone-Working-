@@ -36,7 +36,7 @@ if (Object.keys(chatmemory).length === 0) {
 }
 rebuildsidebar();
 
-
+const API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
 
 
